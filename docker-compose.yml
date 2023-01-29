@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  frontnode:
+    image: node:16
+    tty: true
+    user: node
+    stdin_open: true
+    working_dir: /home/node/thot-frontend
+    command: ["/bin/sh", "/home/node/scripts/initialFrontEnd.sh"]
+    volumes:
+      - ./thot-frontend:/home/node/thot-frontend
+      - ./scripts:/home/node/scripts
+  # backend:
+  #   image: bitnami:laravel_9
+  #   user: "${UID}:${GID}"
+  #   volumes:
+  #     - ./thot-backend
+  # database:
+  #   image: mysql:5.7
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD:admin
